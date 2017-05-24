@@ -1,0 +1,8 @@
+1. Boot time customization – Boot time must be reduced to a target value or lowest 
+   boot time that allows application software to function
+2. Inclusion of application software in Linux image build
+3. Inclusion of predefined user account creation in the Linux image build
+4. Preconfigure (wireless) network configuration in Linux image build
+5. Linux image customization to reduced image to the minimum that allows application software to function.
+6. Auto start of the application software as part of the Linux image build
+
