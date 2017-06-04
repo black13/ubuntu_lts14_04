@@ -11,10 +11,15 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/trusty64"
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.disksize.size = '100GB'
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
+  $script = <<-SCRIPT
+  git clone -b morty git://git.yoctoproject.org/poky.git new-poky
+  SCRIPT
+  config.vm.provision "shell", inline: $script, privileged: false
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -49,8 +54,8 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
-     vb.memory = "2048"
-     vb.cpus = 2
+     vb.memory = "4096"
+     vb.cpus = 4
   end
   #
   # View the documentation for the provider you are using for more
